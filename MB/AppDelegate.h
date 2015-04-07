@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 BTICs. All rights reserved.
 //
 
+
+//Gracias . . .
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import <Parse/Parse.h>
