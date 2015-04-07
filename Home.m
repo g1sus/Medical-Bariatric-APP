@@ -32,33 +32,35 @@
         [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     }
     
+    
+    
+    
+    if (iniciado == 0){
+        
+        [self performSegueWithIdentifier:@"GoToEditarPerfil" sender:self];
+        
+    }else{
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"MedicalBariatric"];
+        [query getObjectInBackgroundWithId:id_parse_com block:^(PFObject *persona, NSError *error) {
+            // Do something with the returned PFObject in the gameScore variable.
+            NSLog(@"%@", [persona objectForKey:@"nombre"]);
+            NSNumber *estatura = [persona objectForKey:@"Estatura"];
+            NSNumber *peso = [persona objectForKey:@"Peso"];
+            NSNumber *pi = [persona objectForKey:@"PesoIdeal"];
+            NSNumber *imc = [persona objectForKey:@"IMC"];
+            
+            
+            self.lblNombre.text = persona[@"Nombre"];
+            self.lblEstatura.text = [estatura stringValue];
+            self.lblPeso.text = [peso stringValue];
+            self.lblPesoIdeal.text = [pi stringValue];
+            self.lblIMC.text = [imc stringValue];
 
-    
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"MedicalBariatric"];
-    [query getFirstObjectInBackgroundWithBlock:^(PFObject *persona, NSError *error) {
-        // code
-        
-        NSNumber *estatura = [persona objectForKey:@"Estatura"];
-        NSNumber *peso = [persona objectForKey:@"Peso"];
-        NSNumber *pi = [persona objectForKey:@"PesoIdeal"];
-        NSNumber *imc = [persona objectForKey:@"IMC"];
-        
-        
-        self.lblNombre.text = persona[@"Nombre"];
-        self.lblEstatura.text = [estatura stringValue];
-        self.lblPeso.text = [peso stringValue];
-        self.lblPesoIdeal.text = [pi stringValue];
-        self.lblIMC.text = [imc stringValue];
-    }];
-    
-    
-    
-    
-    
+        }];
+    }
+
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

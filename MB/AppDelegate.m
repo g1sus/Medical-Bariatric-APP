@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "VariablesGlobales.h"
 
 
 @interface AppDelegate ()
@@ -20,6 +21,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    iniciado = 0;
     // Override point for customization after application launch.
     [FBSDKLoginButton class];
     // [Optional] Power your app with Local Datastore. For more info, go to

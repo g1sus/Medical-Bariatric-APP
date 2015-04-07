@@ -287,7 +287,6 @@
 		643A1F4D1ACDCE8D0008ACBF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				64FCF89B1AD1003400B73F17 /* GlobalVars */,
 				64FCF8981AD0CDA800B73F17 /* FB */,
 				643A1FCD1ACDDBB30008ACBF /* libsqlite3.dylib */,
 				643A1FCB1ACDDBA70008ACBF /* libz.dylib */,
@@ -341,6 +340,7 @@
 		645D47891ACB6F650069F0C1 /* MB */ = {
 			isa = PBXGroup;
 			children = (
+				64FCF89B1AD1003400B73F17 /* GlobalVars */,
 				643A1F4D1ACDCE8D0008ACBF /* Frameworks */,
 				645D478F1ACB6F650069F0C1 /* AppDelegate.m */,
 				645D478E1ACB6F650069F0C1 /* AppDelegate.h */,
@@ -463,6 +463,7 @@
 				64FCF89D1AD1004E00B73F17 /* VariablesGlobales.m */,
 			);
 			name = GlobalVars;
+			path = ../Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

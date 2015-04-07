@@ -85,39 +85,33 @@ UIAlertView *alert;
         objTemp[@"imgPicture"] = imageFile;
         
         
-        idParseObj = @"";
         
-        if ([objTemp saveInBackground]){
-            
-            //guardar el ID
-            
-            
-            self.txtNombre.text = nil;
-            self.txtFechaNac.text = nil;
-            self.txtPeso.text = nil;
-            self.txtEstatura.text = nil;
-            self.txtMovil.text = nil;
-            self.txtMail.text = nil;
-            self.imgPicture = nil;
-        }
-        else
-        {
-            NSLog(@"Error Guardar");
-        }
-        alert = [[UIAlertView alloc] initWithTitle:@"!!!Gracias!!!"
-                                           message:@"No Olvides Actualizar Tus Datos Casa Semana!!!"
-                                          delegate:self
-                                 cancelButtonTitle:@"OK"
-                                 otherButtonTitles: nil];
-        [alert show];
-        
-        idParseObj = [objTemp objectId];
-        
-        NSLog(@"id desde editar %@", idParseObj);
-       [self performSegueWithIdentifier:@"EditToMenu" sender:self];
+        [objTemp saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             NSLog(@"id Parse %@", objTemp.objectId);
+             iniciado = 1;
+             id_parse_com = objTemp.objectId;
+             
+             alert = [[UIAlertView alloc] initWithTitle:@"!!!Gracias!!!"
+                                                message:@"No Olvides Actualizar Tus Datos Cada Semana!!!"
+                                               delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles: nil];
+             [alert show];
+             
+             self.txtNombre.text = nil;
+             self.txtFechaNac.text = nil;
+             self.txtPeso.text = nil;
+             self.txtEstatura.text = nil;
+             self.txtMovil.text = nil;
+             self.txtMail.text = nil;
+             self.imgPicture = nil;
+             
+             [self performSegueWithIdentifier:@"EditToMenu" sender:self];
+         }];
         
     }
-
+    
 }
 
 - (IBAction)btnCamara:(id)sender {

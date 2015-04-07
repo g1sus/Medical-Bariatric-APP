@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-NSString *idParseObj;
+int *iniciado;
+NSString *id_parse_com;
 
 @interface VariablesGlobales : NSObject
 
